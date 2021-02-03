@@ -1,0 +1,35 @@
+#container{
+    padding: 10px;
+}
+.ant-card{
+    background: rgba(255,255,255,0.8) ;
+    border: none;
+}
+#title-list{
+    font-size: 45px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    padding: 10px;
+}
+#btn-details{
+    float: right;
+}
+.ant-card-body{
+    padding: 12px;
+}
+.ant-modal-content{
+    width: 750px;
+}
+.ant-card-bordered{
+    box-shadow: 2px 2px 5px #000;
+}
+.ant-modal-confirm-title{
+    font-size: 25px !important;
+    text-align: center;
+    margin-bottom: 35px;
+}
+.details{
+    font-size: 16px;
+}

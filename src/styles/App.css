@@ -1,0 +1,7 @@
+@import '../../node_modules/antd/dist/antd.css';
+.App {
+  font-family: sans-serif;
+  background-image: url("https://images.pexels.com/photos/4058026/pexels-photo-4058026.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-position: center center;
+  background-size: cover;
+}
