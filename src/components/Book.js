@@ -1,24 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import '../styles/Book.css';
 import {Card, Row, Col, Image, Button, Modal, Typography} from "antd";
 const { Text, Link } = Typography;
 
-function Book() {
-
-    const [books, setBooks] = useState([]);
-
-    useEffect(() => {
-        const fetchBooks = async () => {
-            const response = await fetch(
-                "https://stark-spire-22280.herokuapp.com/api/books"
-            );
-            const json = await response.json();
-            console.log("json", json);
-            setBooks(json.data);
-            return json;
-        };
-        fetchBooks();
-    }, []);
+function Book(props) {
+    const book = props.book;
 
     function info(value) {
         Modal.info({
@@ -51,30 +37,25 @@ function Book() {
 
     return (
         <>
-            <h1 id="title-list">Book-Hi</h1>
-            <Row id="container" gutter={[16, 16]} justify="center">
-                {books.map((book) => (
-                    <Col>
-                        <Card style={{width: 480, height: 200}}>
-                            <Row gutter={[8, 8]}>
-                                <Col span={9}>
-                                    <Image
-                                        src={book.cover_page}
-                                    />
-                                </Col>
-                                <Col span={15}>
-                                    <h3>{book.title}</h3>
-                                    <h4>{book.author} - {book.year_edition}</h4>
-                                    <h3> ${book.price}</h3>
-                                </Col>
-                            </Row>
-                            <div>
-                                <Button type="primary" id="btn-details" onClick={() => info(book)}>VER MÁS</Button>
-                            </div>
-                        </Card>
-                    </Col>
-                ))}
-            </Row>
+            <Col>
+                <Card style={{width: 480, height: 200}}>
+                    <Row gutter={[8, 8]}>
+                        <Col span={9}>
+                            <Image
+                                src={book.cover_page}
+                            />
+                        </Col>
+                        <Col span={15}>
+                            <h3>{book.title}</h3>
+                            <h4>{book.author} - {book.year_edition}</h4>
+                            <h3> ${book.price}</h3>
+                        </Col>
+                    </Row>
+                    <div>
+                        <Button type="primary" id="btn-details" onClick={() => info(book)}>VER MÁS</Button>
+                    </div>
+                </Card>
+            </Col>
         </>
     );
 }
